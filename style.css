@@ -171,11 +171,11 @@
 
 @layer layout {
   .flow > * + * {
-    margin-top: var(--flow-sapce, 1em);
+    margin-top: var(--flow-spacer, 1em);
   }
   .grid-flow {
     display: grid;
-    gap: var(--grid-flow-space, 1rem);
+    gap: var(--grid-flow-gap, 1rem);
 
     align-content: start;
     justify-items: start;
@@ -188,15 +188,16 @@
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, 1rem);
+    align-items: var(--column-layout-alignment, stretch);
 
-    @media (width > 500px) {
+    @media (width > 760px) {
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
     }
     &[data-gap='large'] {
       --equal-columns-gap: 2rem;
     }
-    align-items: var(--column-layout-alignment, start);
+   
 
     &[data-vertical-alignment='centered'] {
       --column-layout-alignment: center;
@@ -293,6 +294,17 @@
     text-align: center;
     font-size: var(--font-size-md);
     color: var(--text-high-contrast);
+    background-image: url(/assets/hero.webp);
+    background-size: cover;
+    background-position: center;
+  }
+  .hero__title{
+    font-size: var(--font-size-heading-lg);
+    span {
+      font-size: var(--font-size-heading-xl);
+      color: var(--text-brand);
+      display: block;
+    }
   }
   .card {
     display: grid;
