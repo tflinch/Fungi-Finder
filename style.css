@@ -197,7 +197,6 @@
     &[data-gap='large'] {
       --equal-columns-gap: 2rem;
     }
-   
 
     &[data-vertical-alignment='centered'] {
       --column-layout-alignment: center;
@@ -274,7 +273,7 @@
     gap: 2rem;
 
     a {
-      color: var(--text-high-contrast);
+      color: var(--text-main);
     }
 
     a:hover,
@@ -298,7 +297,7 @@
     background-size: cover;
     background-position: center;
   }
-  .hero__title{
+  .hero__title {
     font-size: var(--font-size-heading-lg);
     span {
       font-size: var(--font-size-heading-xl);
@@ -312,15 +311,13 @@
     padding: 1rem;
     background-color: var(--background-light);
     border-radius: var(--border-radius-md);
-
-    .card__title {
-      font-size: var(--card--title-font-size, --font-size-heading-sm);
-      color: var(--card-title-colr, var(--text-brand));
-    }
-
     img {
       border-radius: var(--border-radius-sm);
     }
+  }
+  .card__title {
+    font-size: var(--card--title-font-size, --font-size-heading-sm);
+    color: var(--card-title-colr, var(--text-brand));
   }
   .button {
     text-decoration: none;
