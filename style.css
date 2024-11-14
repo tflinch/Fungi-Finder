@@ -197,7 +197,6 @@
     &[data-gap='large'] {
       --equal-columns-gap: 2rem;
     }
-   
 
     &[data-vertical-alignment='centered'] {
       --column-layout-alignment: center;
@@ -260,10 +259,55 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  [aria-controls='primary-nav'] {
+    z-index: 100;
+    background: transparent;
+    border: 0;
+    img {
+      border-radius: 0;
+    }
+  }
+  [aria-controls='primary-nav'] {
+    display: none;
+  }
   .primary-navigation {
     ul {
       display: flex;
       gap: 0.5rem 1rem;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    @media (width < 760px) {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      font-family: var(--ff-heading);
+      background-color: var(--background-accent-main);
+      border-radius: 0 0 0 var(--border-radius-md);
+      ul {
+        gap: 0;
+        flex-direction: column;
+      }
+      li + li {
+        margin-block-start: 2rem;
+        padding-block-start: 2rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
+    }
+  }
+  @media (width < 760px) {
+    [aria-controls='primary-nav'] {
+      display: block;
+    }
+    [aria-expanded='true'] + .primary-navigation {
+      display: block;
     }
   }
   .site-footer {
@@ -274,7 +318,7 @@
     gap: 2rem;
 
     a {
-      color: var(--text-high-contrast);
+      color: var(--text-main);
     }
 
     a:hover,
@@ -298,7 +342,7 @@
     background-size: cover;
     background-position: center;
   }
-  .hero__title{
+  .hero__title {
     font-size: var(--font-size-heading-lg);
     span {
       font-size: var(--font-size-heading-xl);
@@ -312,15 +356,13 @@
     padding: 1rem;
     background-color: var(--background-light);
     border-radius: var(--border-radius-md);
-
-    .card__title {
-      font-size: var(--card--title-font-size, --font-size-heading-sm);
-      color: var(--card-title-colr, var(--text-brand));
-    }
-
     img {
       border-radius: var(--border-radius-sm);
     }
+  }
+  .card__title {
+    font-size: var(--card--title-font-size, --font-size-heading-sm);
+    color: var(--card-title-colr, var(--text-brand));
   }
   .button {
     text-decoration: none;
