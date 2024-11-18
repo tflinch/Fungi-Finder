@@ -8,5 +8,14 @@ navToggle.addEventListener('click', () => {
   } else {
     navToggle.setAttribute('aria-expanded', 'false');
   }
-  console.log(navOpned);
 });
+
+const resizeObserver = new ResizeObserver(() => {
+  document.body.classList.add('resizing');
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove('resizing');
+  });
+});
+
+resizeObserver.observe(document.body);
