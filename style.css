@@ -413,6 +413,10 @@
     background-image: url(/assets/hero.webp);
     background-size: cover;
     background-position: center;
+
+    animation: fade-out forwards;
+    animation-timeline: view();
+    animation-range-start: exit;
   }
   .hero__title {
     font-size: var(--font-size-heading-lg);
@@ -488,9 +492,9 @@
     gap: var(--card-gap, 1rem);
     padding: 1rem;
     background-color: var(--background-light);
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-lg);
     img {
-      border-radius: var(--border-radius-sm);
+      border-radius: var(--border-radius-md);
     }
   }
   .card__title {
@@ -507,12 +511,14 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 
     li {
       font-family: var(--ff-heading);
       color: var(--text-high-contrast);
       font-size: var(--font-size-sm);
-      padding: 0.5rem;
+      padding: 0.125rem 0.25rem;
       background-color: var(--tag-bg, red);
       border-radius: var(--border-radius-sm);
     }
@@ -559,6 +565,11 @@
 @layer utilities {
   [hidden] {
     display: none;
+  }
+  .resizing * {
+    transition: none;
+    /* animation: none; */
+    animation-play-state: paused;
   }
   .visually-hidden {
     clip: rect(0 0 0 0);
@@ -614,5 +625,12 @@
   }
   .font-size-lg {
     font-size: var(--font-size-lg);
+  }
+}
+
+@keyframes fade-out{
+  from { opacity: 1;}
+  to{
+    opacity: 0;
   }
 }
