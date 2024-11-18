@@ -8,5 +8,4 @@ navToggle.addEventListener('click', () => {
   } else {
     navToggle.setAttribute('aria-expanded', 'false');
   }
-  console.log(navOpned);
 });
